@@ -1,0 +1,16 @@
+{
+  "name": "advent-of-typescript-2023",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "tsc"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {}
+}
