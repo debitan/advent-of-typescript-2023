@@ -20,7 +20,6 @@ type SantasList = {
   naughty_candace: { address: "12 aurora" };
 };
 type test_wellBehaved_actual = RemoveNaughtyChildren<SantasList>;
-//   ^?
 type test_wellBehaved_expected = {
   good_timmy: { address: "43 chocolate dr" };
 };
@@ -33,7 +32,6 @@ type Unrelated = {
   naughty_play: "fair";
 };
 type test_Unrelated_actual = RemoveNaughtyChildren<Unrelated>;
-//   ^?
 type test_Unrelated_expected = {
   dont: "cheat";
 };

@@ -15,7 +15,6 @@ type MixedBehaviorList = {
   penny: { behavior: "bad" };
 };
 type test_MixedBehaviorTest_actual = PresentDeliveryList<MixedBehaviorList>;
-//   ^?
 type test_MixedBehaviorTest_expected = {
   john: Address;
   jimmy: Address;
@@ -33,7 +32,6 @@ type Unrelated = {
   world: { world: "world" };
 };
 type test_Unrelated_actual = PresentDeliveryList<Unrelated>;
-//   ^?
 type test_Unrelated_expected = {
   hello: Address;
   world: Address;

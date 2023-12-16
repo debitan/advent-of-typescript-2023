@@ -12,7 +12,6 @@ const cookieInventory = {
   snickeDoodle: 73,
 };
 type test_cookies_actual = CookieSurveyInput<typeof cookieInventory>;
-//   ^?
 type test_cookies_expected =
   | "chocolate"
   | "sugar"
@@ -31,7 +30,6 @@ const unrelated = {
   hi7: 1,
 };
 type test_unrelated_actual = CookieSurveyInput<typeof unrelated>;
-//   ^?
 type test_unrealted_expected =
   | "hi"
   | "hi2"

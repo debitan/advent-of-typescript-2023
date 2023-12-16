@@ -12,7 +12,6 @@ type WellBehavedList = {
   candace: { address: "12 aurora" };
 };
 type test_wellBehaved_actual = AppendGood<WellBehavedList>;
-//   ^?
 type test_wellBehaved_expected = {
   good_tom: { address: "1 candy cane lane" };
   good_timmy: { address: "43 chocolate dr" };
@@ -28,7 +27,6 @@ type Unrelated = {
   play: "fair";
 };
 type test_Unrelated_actual = AppendGood<Unrelated>;
-//   ^?
 type test_Unrelated_expected = {
   good_dont: "cheat";
   good_play: "fair";
