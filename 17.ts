@@ -1,0 +1,70 @@
+type RockPaperScissors = {
+  rock: "👊🏻";
+  paper: "🖐🏾";
+  scissors: "✌🏽";
+};
+
+type WhoWins<Opponent, You> = Opponent extends RockPaperScissors["rock"]
+  ? You extends RockPaperScissors["rock"]
+    ? "draw"
+    : You extends RockPaperScissors["paper"]
+    ? "win"
+    : You extends RockPaperScissors["scissors"]
+    ? "lose"
+    : never
+  : Opponent extends RockPaperScissors["paper"]
+  ? You extends RockPaperScissors["rock"]
+    ? "lose"
+    : You extends RockPaperScissors["paper"]
+    ? "draw"
+    : You extends RockPaperScissors["scissors"]
+    ? "win"
+    : never
+  : Opponent extends RockPaperScissors["scissors"]
+  ? You extends RockPaperScissors["rock"]
+    ? "win"
+    : You extends RockPaperScissors["paper"]
+    ? "lose"
+    : You extends RockPaperScissors["scissors"]
+    ? "draw"
+    : never
+  : never;
+
+// TESTS
+import { Expect, Equal } from "type-testing";
+
+type test_0_actual = WhoWins<"👊🏻", "🖐🏾">;
+type test_0_expected = "win";
+type test_0 = Expect<Equal<test_0_expected, test_0_actual>>;
+
+type test_1_actual = WhoWins<"👊🏻", "✌🏽">;
+type test_1_expected = "lose";
+type test_1 = Expect<Equal<test_1_expected, test_1_actual>>;
+
+type test_2_actual = WhoWins<"👊🏻", "👊🏻">;
+type test_2_expected = "draw";
+type test_2 = Expect<Equal<test_2_expected, test_2_actual>>;
+
+type test_3_actual = WhoWins<"🖐🏾", "👊🏻">;
+type test_3_expected = "lose";
+type test_3 = Expect<Equal<test_3_expected, test_3_actual>>;
+
+type test_4_actual = WhoWins<"🖐🏾", "✌🏽">;
+type test_4_expected = "win";
+type test_4 = Expect<Equal<test_4_expected, test_4_actual>>;
+
+type test_5_actual = WhoWins<"🖐🏾", "🖐🏾">;
+type test_5_expected = "draw";
+type test_5 = Expect<Equal<test_5_expected, test_5_actual>>;
+
+type test_6_actual = WhoWins<"✌🏽", "👊🏻">;
+type test_6_expected = "win";
+type test_6 = Expect<Equal<test_6_expected, test_6_actual>>;
+
+type test_7_actual = WhoWins<"✌🏽", "✌🏽">;
+type test_7_expected = "draw";
+type test_7 = Expect<Equal<test_7_expected, test_7_actual>>;
+
+type test_8_actual = WhoWins<"✌🏽", "🖐🏾">;
+type test_8_expected = "lose";
+type test_8 = Expect<Equal<test_8_expected, test_8_actual>>;
