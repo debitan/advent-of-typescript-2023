@@ -51,15 +51,15 @@ type CheckDuplicates<Cells extends Reindeer> = Reindeer extends Cells
   ? true
   : false;
 
-  type GetRow<
+type GetRow<
   Sudoku extends Reindeer[][],
   Row extends number
 > = Sudoku[Row][number];
 
 type CheckRows<
-    Sudoku extends Reindeer[][],
-    $Iter extends number = ToInt<keyof Sudoku>,
-> = $Iter extends number ? CheckDuplicates<GetRow<Sudoku, $Iter>>;
+  Sudoku extends Reindeer[][],
+  $Iter extends number = ToInt<keyof Sudoku>
+> = $Iter extends number ? CheckDuplicates<GetRow<Sudoku, $Iter>> : false;
 
 type GetColumn<
   Sudoku extends Reindeer[][],
